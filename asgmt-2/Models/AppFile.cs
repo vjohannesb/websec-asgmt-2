@@ -7,7 +7,7 @@
             var id = Guid.NewGuid();
             Id = id;
             Name = id.ToString();
-            Timestamp = DateTime.Now;
+            Timestamp = DateTime.UtcNow;
             UnsafeName = string.Empty;
             FileExtension = string.Empty;
             Size = 0;
