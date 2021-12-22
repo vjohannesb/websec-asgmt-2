@@ -1,9 +1,13 @@
+using asgmt_2.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
+builder.Services.AddSingleton<IDbService, DbService>();
+
+WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -19,9 +19,6 @@ namespace asgmt_2.Pages
             _logger = logger;
         }
 
-        public void OnGet()
-        {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-        }
+        public void OnGet() => RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
     }
 }

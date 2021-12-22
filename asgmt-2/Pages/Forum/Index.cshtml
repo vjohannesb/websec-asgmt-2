@@ -1,0 +1,23 @@
+﻿@page
+@using asgmt_2.Services
+@inject IDbService dbService
+@model ForumModel
+@{
+    ViewData["Title"] = "Forum";
+}
+<h1>@ViewData["Title"]</h1>
+<a href="/forum/addcomment" class="btn btn-outline-success">Add comment</a>
+
+<div class="comments-container">
+    @foreach (var comment in dbService.Comments)
+    {
+        <div class="row align-items-center py-2 my-1 w-100">
+            <span class="col-3 col-md-auto text-muted font-monospace text-center">
+                @comment.Timestamp
+            </span>
+            <span class="col-9 col-md-8 col-lg-9 col-xxl-10 border-start border-2">
+                @Html.Raw(comment.Content)
+            </span>
+        </div>
+    }
+</div>

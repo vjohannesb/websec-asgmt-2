@@ -1,0 +1,44 @@
+﻿@page "{id?}"
+@using asgmt_2.Services
+@inject IDbService dbService
+@model asgmt_2.Pages.Files.IndexModel
+@{
+    ViewData["Title"] = "Files";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<span class="text-muted">JPEG/JPG. Limit 10MB.</span>
+<form enctype="multipart/form-data" method="post">
+    @*"accept"-attribute is just a helper, does not guarantee submitted files are safe.*@
+    <input type="file" accept=".jpeg, .jpg" asp-for="FormFile" />
+    <input class="btn btn-outline-success" type="submit" value="Upload file" />
+</form>
+
+<div class="files-container">
+        <div class="row align-items-center justify-content-between py-2 my-1 w-100 border-bottom">
+            <span class="col-3 col-sm-4 col-xxl-2 text-center text-md-start">
+                Uploaded
+            </span>
+            <span class="col-6 col-lg-7">
+                Original filename
+            </span>
+            <span class="col-2 col-md-1 text-muted font-monospace text-center">
+                Size
+            </span>
+        </div>
+    @foreach (var file in dbService.Files)
+    {
+        <div class="row align-items-center justify-content-between py-2 my-1 w-100">
+            <span class="col-3 col-sm-4 col-xxl-2 text-center text-md-start text-muted font-monospace">
+                @file.Timestamp
+            </span>
+            <span class="col-6 col-lg-7">
+                <a href="/files/@file.Id">@file.DisplayName</a>
+            </span>
+            <span class="col-2 col-md-1 text-muted font-monospace text-center">
+                @(file.Size / (1024))kb
+            </span>
+        </div>
+    }
+</div>
