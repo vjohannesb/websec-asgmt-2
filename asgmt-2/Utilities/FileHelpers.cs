@@ -15,7 +15,9 @@ namespace asgmt_2.Utilities
         private static readonly Dictionary<string, List<byte[]>> fileSignature = new()
         {
 
-            { ".jpg", new List<byte[]>
+            {
+                ".jpg",
+                new List<byte[]>
                 {
                     new byte[] { 0xFF, 0xD8, 0xFF, 0xE0 },
                     new byte[] { 0xFF, 0xD8, 0xFF, 0xE1 },
@@ -25,7 +27,8 @@ namespace asgmt_2.Utilities
                 }
             },
             {
-                ".jpeg", new List<byte[]>
+                ".jpeg",
+                new List<byte[]>
                 {
                     new byte[] { 0xFF, 0xD8, 0xFF, 0xE0 },
                     new byte[] { 0xFF, 0xD8, 0xFF, 0xE1 },
