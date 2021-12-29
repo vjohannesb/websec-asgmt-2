@@ -14,10 +14,10 @@ namespace asgmt_2.Models
             Pattern = new Regex($"{EncodedOpen}(.+){EncodedClose}", RegexOptions.IgnoreCase | RegexOptions.Singleline);
         }
 
-        public string EncodedOpen { get; set; }
-        public string EncodedClose { get; set; }
-        public string RawOpen { get; set; }
-        public string RawClose { get; set; }
-        public Regex Pattern { get; set; }
+        public string EncodedOpen { get; }
+        public string EncodedClose { get; }
+        public string RawOpen { get; }
+        public string RawClose { get; }
+        public Regex Pattern { get; }
     }
 }
