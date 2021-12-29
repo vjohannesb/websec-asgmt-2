@@ -26,8 +26,6 @@ namespace asgmt_2.Pages
             };
         }
 
-        public void OnGet() { }
-
         [BindProperty]
         public Comment Comment { get; set; }
 
@@ -56,7 +54,7 @@ namespace asgmt_2.Pages
         private string ParseInput(string content)
         {
             var encoded = HttpUtility.HtmlEncode(content);
-            foreach (HTMLTag? tag in _allowedTags)
+            foreach (HTMLTag tag in _allowedTags)
             {
                 encoded = tag.Pattern.Replace(
                     encoded,

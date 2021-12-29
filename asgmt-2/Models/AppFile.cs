@@ -26,8 +26,9 @@
             get
             {
                 var filename = Path.GetFileNameWithoutExtension(UnsafeName);
-                var shortName = filename[..Math.Min(16, filename.Length - 3)];
-                return shortName.Length + 3 < filename.Length
+                var maxLength = Math.Min(15, Math.Max(0, filename.Length - 5));
+                var shortName = filename[..maxLength];
+                return shortName.Length + 5 < filename.Length
                     ? $"{shortName}(...){FileExtension}"
                     : filename + FileExtension;
             }

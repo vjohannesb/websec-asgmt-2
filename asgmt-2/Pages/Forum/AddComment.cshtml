@@ -4,6 +4,14 @@
     ViewData["Title"] = "Add comment";
 }
 <h1>@ViewData["Title"]</h1>
+<p>
+    Allowed tags are 
+    <code>
+        @("<b></b>")
+        @("<i></i>")
+        @("<u></u>")
+    </code>
+</p>
 
 <form method="post">
     <div class="form-group">

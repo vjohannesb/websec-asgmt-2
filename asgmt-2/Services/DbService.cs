@@ -2,6 +2,7 @@
 
 namespace asgmt_2.Services
 {
+    // Temporary database-imitation for assignment
     public class DbService : IDbService
     {
         public List<Comment> Comments { get; set; } = new();
